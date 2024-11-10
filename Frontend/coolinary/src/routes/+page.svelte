@@ -1,9 +1,13 @@
+<script lang="ts">
+	import { Button } from "$lib/components";
+</script>
+
 <header>
     <h1>COOLINARY</h1>
     <h2>Welcome to Coolinary a place where you can share your recipees</h2>
 </header>
 <div class="buttons-wrapper">
-    <button>Login</button>
+    <Button text='Login' />
 </div>
 
 <style>
