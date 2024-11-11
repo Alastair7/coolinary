@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mario\\source\\repos\\CoolinaryAPI\\CoolinaryAPI.csproj": {}
+    "C:\\Users\\mario\\Desktop\\coolinary\\Backend\\CoolinaryAPI\\CoolinaryAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mario\\source\\repos\\CoolinaryAPI\\CoolinaryAPI.csproj": {
+    "C:\\Users\\mario\\Desktop\\coolinary\\Backend\\CoolinaryAPI\\CoolinaryAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mario\\source\\repos\\CoolinaryAPI\\CoolinaryAPI.csproj",
+        "projectUniqueName": "C:\\Users\\mario\\Desktop\\coolinary\\Backend\\CoolinaryAPI\\CoolinaryAPI.csproj",
         "projectName": "CoolinaryAPI",
-        "projectPath": "C:\\Users\\mario\\source\\repos\\CoolinaryAPI\\CoolinaryAPI.csproj",
+        "projectPath": "C:\\Users\\mario\\Desktop\\coolinary\\Backend\\CoolinaryAPI\\CoolinaryAPI.csproj",
         "packagesPath": "C:\\Users\\mario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mario\\source\\repos\\CoolinaryAPI\\obj\\",
+        "outputPath": "C:\\Users\\mario\\Desktop\\coolinary\\Backend\\CoolinaryAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,9 +39,21 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.2.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.2.0, )"
             }
           },
           "imports": [
