@@ -26,10 +26,6 @@ public class LoginController : ControllerBase
 
         //Future refactor :D 
         // Check if the credencials are correct
-        if (string.IsNullOrEmpty(request.Name1) || string.IsNullOrEmpty(request.Password1))
-        {
-            return BadRequest("Name and password are required"); // status 400 error 
-        }
 
         if (!request.Name1.Equals("Test") || !request.Password1.Equals("1234"))
         {
@@ -49,8 +45,9 @@ public class LoginController : ControllerBase
         };
 
         // Generate the key with the correct dimensions
+        string jwtKey = _config.GetSection("JWT:Key").Value ?? string.Empty;
         var key = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(_config.GetSection("JWT:Key").Value.PadRight(64, '0')));
+            Encoding.UTF8.GetBytes(jwtKey.PadRight(64, '0')));
 
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
 
@@ -66,7 +63,7 @@ public class LoginController : ControllerBase
 }
 public class LoginRequest
 {
-    public string Name1 { get; set; }
-    public string Password1 { get; set; }
+    public required string Name1 { get; set; }
+    public required string Password1 { get; set; }
 }
 
