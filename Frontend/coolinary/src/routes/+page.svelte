@@ -1,5 +1,22 @@
 <script lang="ts">
+	import { getAuth0Client } from "$lib/auth/authClient";
 	import { Button } from "$lib/components";
+	import type { Auth0Client } from "@auth0/auth0-spa-js";
+	import { onMount } from "svelte";
+
+    let auth0Client : Auth0Client;
+    
+    onMount(async () => {
+        auth0Client = await getAuth0Client();
+    })
+    
+    const handleLogin = async () => {
+        await auth0Client.loginWithRedirect({
+            authorizationParams: {
+                redirect_uri: 'http://localhost:5173/callback'
+            }
+        });
+    }
 </script>
 
 <header>
@@ -7,7 +24,7 @@
     <h2>Welcome to Coolinary a place where you can share your recipees</h2>
 </header>
 <div class="buttons-wrapper">
-    <Button text='Login' />
+    <Button text='Login' onclick={handleLogin} />
 </div>
 
 <style>
