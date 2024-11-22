@@ -5,9 +5,10 @@
 	import { onMount } from "svelte";
 
     let auth0Client : Auth0Client;
+    let  {data } = $props();
     
     onMount(async () => {
-        auth0Client = await getAuth0Client();
+    auth0Client = await getAuth0Client(data.authClientId, data.authDomain);
     })
     
     const handleLogin = async () => {
