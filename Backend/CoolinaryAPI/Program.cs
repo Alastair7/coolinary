@@ -36,6 +36,10 @@ builder.Services.AddSwaggerGen(c =>
 
 // Add Auth0 authentication. It uses AddAuthentication inside.
 builder.Services.AddAuth0(builder);
+builder.Services.AddHttpClient();
+builder.Configuration.SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json",
+    optional:true,reloadOnChange:true)
+    .AddUserSecrets<Program>();
 
 var app = builder.Build();
 
