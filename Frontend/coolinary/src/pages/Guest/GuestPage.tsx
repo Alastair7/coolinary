@@ -1,6 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import "./GuestPage.scss";
 
-export const LoginPage = () => {
+export const GuestPage = () => {
   const { loginWithRedirect } = useAuth0();
   const handleLogin = async () => {
     await loginWithRedirect({
@@ -12,7 +13,10 @@ export const LoginPage = () => {
 
   return (
     <>
-      <h1>Start using Coolinary!</h1>
+      <header>
+        <h1>Coolinary</h1>
+        <h2>Create and share recipes with your friends</h2>
+      </header>
       <button onClick={handleLogin}>Login</button>
     </>
   );
