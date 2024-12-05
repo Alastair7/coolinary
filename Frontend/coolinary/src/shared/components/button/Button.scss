@@ -1,0 +1,31 @@
+button {
+  font-family: "Merriweather";
+  font-weight: 900;
+  border-radius: 0.5em;
+  transition: ease-in 0.115s background-color;
+}
+
+.primary-button {
+  border: 0.5px solid #4a3f5f;
+  width: 7em;
+  height: 3em;
+  background-color: #e4dbf5;
+  color: #34340f;
+}
+
+.secondary-button {
+  font-family: "Merriweather";
+  border: 0.5px solid #4a3f5f;
+  width: 7em;
+  height: 3em;
+  background-color: #dbe4f5;
+  color: #34340f;
+}
+
+.primary-button:hover {
+  background-color: #ddd0f4;
+}
+
+.secondary-button:hover {
+  background-color: #c6daff;
+}
