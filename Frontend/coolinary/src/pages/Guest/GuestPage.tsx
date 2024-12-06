@@ -20,9 +20,8 @@ export const GuestPage = () => {
       </header>
 
       <Button variant={"primary"} onClick={handleLogin}>
-        Login
+        Connect to Coolinary
       </Button>
-      <Button variant="secondary">Secondary</Button>
     </>
   );
 };

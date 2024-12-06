@@ -1,14 +1,19 @@
 button {
   font-family: "Merriweather";
+  padding: 1rem;
+  min-width: 7em;
+  min-height: 3em;
   font-weight: 900;
   border-radius: 0.5em;
   transition: ease-in 0.115s background-color;
 }
 
+button:disabled {
+  background-color: rgb(159, 157, 157);
+}
+
 .primary-button {
   border: 0.5px solid #4a3f5f;
-  width: 7em;
-  height: 3em;
   background-color: #e4dbf5;
   color: #34340f;
 }
@@ -16,16 +21,14 @@ button {
 .secondary-button {
   font-family: "Merriweather";
   border: 0.5px solid #4a3f5f;
-  width: 7em;
-  height: 3em;
   background-color: #dbe4f5;
   color: #34340f;
 }
 
-.primary-button:hover {
+.primary-button:active:not([disabled]) {
   background-color: #ddd0f4;
 }
 
-.secondary-button:hover {
+.secondary-button:active:not([disabled]) {
   background-color: #c6daff;
 }
