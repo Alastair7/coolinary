@@ -1,13 +1,15 @@
+import classNames from "classnames";
 import "./Button.scss";
 
 type Props = React.ComponentProps<"button"> & {
   variant: "primary" | "secondary";
 };
 
-let className: "primary-button" | "secondary-button" | "" = "";
-
 export const Button = ({ variant, ...props }: Props) => {
-  className = variant === "primary" ? "primary-button" : "secondary-button";
+  const buttonClassnames = classNames({
+    "primary-button": variant === "primary",
+    "secondary-button": variant === "secondary",
+  });
 
-  return <button className={className} {...props} />;
+  return <button className={buttonClassnames} {...props} />;
 };

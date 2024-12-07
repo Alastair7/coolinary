@@ -1,3 +1,4 @@
+@use "../../../breakpoints.scss" as breakpoints;
 button {
   font-family: "Merriweather";
   padding: 1rem;
@@ -6,6 +7,23 @@ button {
   font-weight: 900;
   border-radius: 0.5em;
   transition: ease-in 0.115s background-color;
+
+  @include breakpoints.md {
+    min-width: 12em;
+    min-height: 4em;
+  }
+
+  @include breakpoints.lg {
+    font-size: medium;
+    min-width: 14em;
+    min-height: 4;
+  }
+
+  @include breakpoints.xl {
+    font-size: large;
+    min-width: 16em;
+    min-height: 4;
+  }
 }
 
 button:disabled {
