@@ -1,6 +1,9 @@
+@use "../../breakpoints.scss" as breakpoints;
+
 header {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.5em;
   margin: 1.5em;
 }
@@ -9,8 +12,43 @@ h1 {
   color: #1a1a07;
   font-weight: bold;
 }
+
 h2 {
   color: #34340f;
   font-weight: lighter;
   font-style: italic;
+}
+
+.chef-hat {
+  width: 25em;
+  height: 25em;
+}
+
+@include breakpoints.md {
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+@include breakpoints.lg {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+}
+
+@include breakpoints.xl {
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2.5em;
+  }
 }
