@@ -16,13 +16,14 @@ export const GuestPage = () => {
 
   const words: string[] = ["friends", "love", "family"];
 
+  let word = useTypeWriter(words);
   return (
     <>
       <header>
         <h1>Coolinary</h1>
         <h2>
           Create and share recipes with your{" "}
-          {words.map((word) => useTypeWriter(word))}
+          <span className="typewriter_words">{word}</span>
         </h2>
         <ChefHat className="chef-hat" />
       </header>

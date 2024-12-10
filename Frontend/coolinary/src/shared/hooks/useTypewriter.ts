@@ -1,23 +1,40 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-export const useTypeWriter = (text: string, speed: number = 20) => {
-  const [index, setIndex] = useState(0);
-
-  const displayText = useMemo(() => text.slice(0, index), [index]);
+export const useTypeWriter = (words: string[], delay = 100, pause = 1000) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    if (index >= text.length) {
-      return;
-    }
+    let typeDelay = isDeleting ? delay / 2 : delay;
+    const currentWord = words[currentWordIndex];
 
-    const timeoutId = setTimeout(() => {
-      setIndex((i) => i + 1);
-    }, speed);
+    const typeEffect = setTimeout(() => {
+      if (!isDeleting) {
+        setCurrentIndex((prevIndex) => {
+          if (prevIndex === currentWord.length) {
+            setTimeout(() => setIsDeleting(true), pause);
+            return prevIndex;
+          }
+          return prevIndex + 1;
+        });
+      } else {
+        setCurrentIndex((prevIndex) => {
+          if (prevIndex === 0) {
+            setIsDeleting(false);
+            setCurrentWordIndex(
+              (prevWordIndex) => (prevWordIndex + 1) % words.length
+            );
+            return prevIndex;
+          }
 
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [index, text, speed]);
+          return prevIndex - 1;
+        });
+      }
+    }, typeDelay);
 
-  return displayText;
+    return () => clearTimeout(typeEffect);
+  }, [currentIndex, isDeleting, words, currentWordIndex, delay, pause]);
+
+  return words[currentWordIndex].substring(0, currentIndex);
 };
