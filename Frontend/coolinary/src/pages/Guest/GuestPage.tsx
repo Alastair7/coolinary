@@ -1,5 +1,5 @@
-import { useTypeWriter } from "@/shared/hooks/useTypewriter";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useTypeWriter } from "@hooks/useTypewriter";
 import ChefHat from "../../assets/images/chefHat.svg?react";
 import { Button } from "../../shared/components/button/Button";
 import "./GuestPage.scss";
@@ -17,6 +17,7 @@ export const GuestPage = () => {
   const words: string[] = ["friends", "love", "family"];
 
   let word = useTypeWriter(words);
+
   return (
     <>
       <header>
